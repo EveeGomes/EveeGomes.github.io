@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evee Gomes — Gameplay Programmer</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+        h1 { font-size: 2.5rem; color: var(--text); margin-bottom: 0.5rem; }
+        .tagline { color: var(--accent); font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; }
+        .bio { color: var(--text-muted); margin-bottom: 1.5rem; }
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 500;
+        }
+        .links a:hover { text-decoration: underline; }
+        
+        section { margin-bottom: 3rem; }
+        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .card h3 { margin-bottom: 0.5rem; color: var(--text); }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        .tech-stack li {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+        .card-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .card-link:hover { color: var(--accent); }
+        
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Evee Gomes</h1>
+            <div class="tagline">Gameplay Programmer & Engine Enthusiast</div>
+            <p class="bio">Specializing in C++, Unreal Engine, and low-level game architecture. Focused on core systems, gameplay mechanics, and clean, performant code.</p>
+            <div class="links">
+                <a href="https://github.com/EveeGomes" target="_blank">GitHub</a>
+                <a href="mailto:your.email@example.com">Contact</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                
+                <!-- Project 1 -->
+                <div class="card">
+                    <h3>LaneDefender</h3>
+                    <p>A 2D tower defense game built from scratch using C++, SDL2, and CMake to practice Data-Oriented Design, frame loops, and optimized target selection mechanics.</p>
+                    <ul class="tech-stack">
+                        <li>C++</li>
+                        <li>SDL2</li>
+                        <li>CMake</li>
+                        <li>DOD</li>
+                    </ul>
+                    <a href="https://github.com/EveeGomes" target="_blank" class="card-link">View Repository &rarr;</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card">
+                    <h3>QuilomboZ / Gameplay Systems</h3>
+                    <p>Developing character ability components, custom controller state patterns, body-carrying logic, and Steam achievements for an indie action game.</p>
+                    <ul class="tech-stack">
+                        <li>Unreal Engine</li>
+                        <li>C++</li>
+                        <li>Gameplay Ability System</li>
+                    </ul>
+                    <a href="https://github.com/EveeGomes" target="_blank" class="card-link">View Repository &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Core Skills</h2>
+            <div class="card">
+                <ul class="tech-stack" style="margin-bottom: 0;">
+                    <li>C++</li>
+                    <li>Unreal Engine (GAS, C++ Core)</li>
+                    <li>OpenGL & SDL2</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>Git & CMake</li>
+                    <li>Visual Studio / MSVC</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Evee Gomes. Built with raw HTML/CSS & GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
