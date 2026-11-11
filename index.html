@@ -6,117 +6,243 @@
     <title>Evee Gomes — Gameplay Programmer</title>
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --card-border: #1f2937;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
             --accent: #38bdf8;
-            --border: #334155;
+            --accent-glow: rgba(56, 189, 248, 0.15);
         }
+        
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
+
+        /* Header / Hero */
         header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 2rem;
         }
-        h1 { font-size: 2.5rem; color: var(--text); margin-bottom: 0.5rem; }
-        .tagline { color: var(--accent); font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; }
-        .bio { color: var(--text-muted); margin-bottom: 1.5rem; }
-        .links a {
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            width: fit-content;
+            font-family: monospace;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .social-links a {
             color: var(--accent);
             text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
-        .links a:hover { text-decoration: underline; }
-        
-        section { margin-bottom: 3rem; }
-        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
-        
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation / Filter Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--text-main);
+            background-color: var(--card-border);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+        }
+
+        /* Project Cards Grid */
         .grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 1.5rem;
         }
+
         .card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s, border-color 0.2s;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
+
         .card:hover {
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
-        .card h3 { margin-bottom: 0.5rem; color: var(--text); }
-        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             list-style: none;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
+
         .tech-stack li {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
             padding: 0.2rem 0.6rem;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-family: monospace;
         }
+
         .card-link {
-            color: var(--text);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
-        .card-link:hover { color: var(--accent); }
-        
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .skill-pill {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             color: var(--text-muted);
             font-size: 0.85rem;
-            margin-top: 4rem;
-            border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--card-border);
+            padding-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Hero Header -->
         <header>
+            <span class="badge">Gameplay Programmer</span>
             <h1>Evee Gomes</h1>
-            <div class="tagline">Gameplay Programmer & Engine Enthusiast</div>
-            <p class="bio">Specializing in C++, Unreal Engine, and low-level game architecture. Focused on core systems, gameplay mechanics, and clean, performant code.</p>
-            <div class="links">
+            <p class="bio">Building performant gameplay mechanics and core systems in C++ and Unreal Engine. Obsessed with clean architecture, state patterns, and low-level data flow.</p>
+            <div class="social-links">
                 <a href="https://github.com/EveeGomes" target="_blank">GitHub</a>
+                <a href="https://github.com/EveeGomes/slash-cpp-ue5" target="_blank">Featured Repo</a>
                 <a href="mailto:your.email@example.com">Contact</a>
             </div>
         </header>
 
-        <section>
-            <h2>Featured Projects</h2>
-            <div class="grid">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('projects')">Featured Projects</button>
+            <button class="tab-btn" onclick="switchTab('skills')">Tech Stack & Skills</button>
+        </div>
 
-                <!-- Project 1: Slash C++ UE5 -->
+        <!-- Projects Tab Content -->
+        <div id="projects-tab" class="tab-content">
+            <div class="grid">
+                
+                <!-- Slash C++ UE5 -->
                 <div class="card">
                     <div>
                         <h3>Slash C++ (UE5)</h3>
-                        <p>An Unreal Engine 5 action combat project exploring C++ character classes, attack combo mechanics, state management, and robust gameplay framework architecture.</p>
+                        <p>Action combat prototype exploring custom C++ character classes, attack combo state machines, and robust Unreal gameplay framework architecture.</p>
                         <ul class="tech-stack">
                             <li>Unreal Engine 5</li>
                             <li>C++</li>
@@ -126,66 +252,77 @@
                     <a href="https://github.com/EveeGomes/slash-cpp-ue5" target="_blank" class="card-link">View Repository &rarr;</a>
                 </div>
 
-                <!-- Project 2: Aura C++ UE5 -->
+                <!-- QuilomboZ -->
                 <div class="card">
                     <div>
-                        <h3>Aura (UE5 - GAS)</h3>
-                        <p>An Unreal Engine 5 project using the Gameplay Ability System.</p>
+                        <h3>QuilomboZ: Palmares</h3>
+                        <p>Developing character ability components, custom controller state patterns, interest-registration AI perception windows, and Steam achievements.</p>
                         <ul class="tech-stack">
-                            <li>Unreal Engine 5</li>
-                            <li>Gameplay Ability System</li>
+                            <li>Unreal Engine</li>
                             <li>C++</li>
-                            <li>Blueprint</li>
+                            <li>GAS</li>
+                            <li>Steamworks SDK</li>
                         </ul>
                     </div>
-                    <a href="https://github.com/EveeGomes/gameplay-ability-system-aura" target="_blank" class="card-link">View Repository &rarr;</a>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="card">
-                    <h3>LaneDefender</h3>
-                    <p>A 2D tower defense game built from scratch using C++, SDL2, and CMake to practice Data-Oriented Design, frame loops, and optimized target selection mechanics.</p>
-                    <ul class="tech-stack">
-                        <li>C++</li>
-                        <li>SDL2</li>
-                        <li>CMake</li>
-                        <li>DOD</li>
-                    </ul>
+                    <a href="https://github.com/EveeGomes" target="_blank" class="card-link">View Repository &rarr;</a>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- LaneDefender -->
                 <div class="card">
-                    <h3>QuilomboZ / Gameplay Systems</h3>
-                    <p>Developing character ability components, custom controller state patterns, body-carrying logic, and Steam achievements for an indie action game.</p>
-                    <ul class="tech-stack">
-                        <li>Unreal Engine</li>
-                        <li>C++</li>
-                        <li>Blueprint</li>
-                    </ul>
-                    <a href="https://store.steampowered.com/app/4596660/QuilomboZ_Palmares/" target="_blank" class="card-link">View Steam Page &rarr;</a>
+                    <div>
+                        <h3>LaneDefender</h3>
+                        <p>2D tower defense game built from scratch using C++, SDL2, and CMake, emphasizing Data-Oriented Design principles and contiguous memory arrays.</p>
+                        <ul class="tech-stack">
+                            <li>C++</li>
+                            <li>SDL2</li>
+                            <li>CMake</li>
+                            <li>DOD</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/EveeGomes" target="_blank" class="card-link">View Repository &rarr;</a>
                 </div>
 
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Core Skills</h2>
-            <div class="card">
-                <ul class="tech-stack" style="margin-bottom: 0;">
-                    <li>C++</li>
-                    <li>Unreal Engine (GAS, C++)</li>
-                    <li>OpenGL & SDL2</li>
-                    <li>Data Structures & Algorithms</li>
-                    <li>Git & CMake</li>
-                    <li>Visual Studio / MSVC</li>
-                </ul>
+        <!-- Skills Tab Content (Hidden by default) -->
+        <div id="skills-tab" class="tab-content" style="display: none;">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-container">
+                <span class="skill-pill">C++</span>
+                <span class="skill-pill">Unreal Engine 5</span>
+                <span class="skill-pill">Gameplay Ability System (GAS)</span>
+                <span class="skill-pill">Blueprints</span>
+                <span class="skill-pill">Data-Oriented Design (DOD)</span>
+                <span class="skill-pill">OpenGL & SDL2</span>
+                <span class="skill-pill">CMake & Makefiles</span>
+                <span class="skill-pill">Git & Version Control</span>
+                <span class="skill-pill">Visual Studio / MSVC</span>
+                <span class="skill-pill">Steamworks SDK</span>
             </div>
-        </section>
+        </div>
 
         <footer>
-            <p>&copy; 2026 Evee Gomes. Built with raw HTML/CSS & GitHub Pages.</p>
+            <p>&copy; 2026 Evee Gomes. Designed with Vonge aesthetic aesthetics — zero build tools required.</p>
         </footer>
     </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Toggle active tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // Toggle tab contents
+            if (tabName === 'projects') {
+                document.getElementById('projects-tab').style.display = 'block';
+                document.getElementById('skills-tab').style.display = 'none';
+            } else {
+                document.getElementById('projects-tab').style.display = 'none';
+                document.getElementById('skills-tab').style.display = 'block';
+            }
+        }
+    </script>
 
 </body>
 </html>
