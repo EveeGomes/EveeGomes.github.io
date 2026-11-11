@@ -134,6 +134,37 @@
             transform: translateY(-3px);
         }
 
+        .card-img-container {
+            width: 100%;
+            height: 140px;
+            background-color: #1f2937;
+            overflow: hidden;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover .card-img-container img {
+            opacity: 1;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
         .card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
@@ -223,8 +254,7 @@
             <p class="bio">Building performant gameplay mechanics and core systems in C++ and Unreal Engine. Obsessed with clean architecture, state patterns, and low-level data flow.</p>
             <div class="social-links">
                 <a href="https://github.com/EveeGomes" target="_blank">GitHub</a>
-                <a href="https://github.com/EveeGomes/slash-cpp-ue5" target="_blank">Featured Repo</a>
-                <a href="mailto:your.email@example.com">Contact</a>
+                <a href="https://linkedin.com/in/eveegomes" target="_blank">LinkedIn - Contact me</a>
             </div>
         </header>
 
@@ -240,61 +270,81 @@
                 
                 <!-- Slash C++ UE5 -->
                 <div class="card">
-                    <div>
-                        <h3>Slash C++ (UE5)</h3>
-                        <p>Action combat prototype exploring custom C++ character classes, attack combo state machines, and robust Unreal gameplay framework architecture.</p>
-                        <ul class="tech-stack">
-                            <li>Unreal Engine 5</li>
-                            <li>C++</li>
-                            <li>Gameplay Framework</li>
-                        </ul>
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop" alt="Slash C++ Project Thumbnail">
                     </div>
-                    <a href="https://github.com/EveeGomes/slash-cpp-ue5" target="_blank" class="card-link">View Repository &rarr;</a>
+                    <div class="card-body">
+                        <div>
+                            <h3>Slash C++ (UE5)</h3>
+                            <p>Action combat prototype exploring custom C++ character classes, attack combo state machines, and robust Unreal gameplay framework architecture.</p>
+                            <ul class="tech-stack">
+                                <li>Unreal Engine 5</li>
+                                <li>C++</li>
+                                <li>Gameplay Framework</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/EveeGomes/slash-cpp-ue5" target="_blank" class="card-link">View Repository &rarr;</a>
+                    </div>
                 </div>
 
                 <!-- Aura (UE5 - GAS) -->
                 <div class="card">
-                    <div>
-                        <h3>Aura (UE5 - GAS) - WIP</h3>
-                        <p>An Unreal Engine 5 project using the Gameplay Ability System.</p>
-                        <ul class="tech-stack">
-                            <li>Unreal Engine 5</li>
-                            <li>Gameplay Ability System</li>
-                            <li>C++</li>
-                            <li>Gameplay Framework</li>
-                        </ul>
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="QuilomboZ Project Thumbnail">
                     </div>
-                    <a href="https://github.com/EveeGomes/gameplay-ability-system-aura" target="_blank" class="card-link">View Repository &rarr;</a>
+                    <div class="card-body">
+                        <div>
+                            <h3>Aura (UE5 - GAS) - WIP</h3>
+                            <p>An Unreal Engine 5 project using the Gameplay Ability System.</p>
+                            <ul class="tech-stack">
+                                <li>Unreal Engine 5</li>
+                                <li>Gameplay Ability System</li>
+                                <li>C++</li>
+                                <li>Gameplay Framework</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/EveeGomes/gameplay-ability-system-aura" target="_blank" class="card-link">View Repository &rarr;</a>
+                    </div>
                 </div>
 
                 <!-- QuilomboZ -->
                 <div class="card">
-                    <div>
-                        <h3>QuilomboZ: Palmares</h3>
-                        <p>Developing character ability components, custom controller state patterns, interest-registration AI perception windows, and Steam achievements.</p>
-                        <ul class="tech-stack">
-                            <li>Unreal Engine</li>
-                            <li>C++</li>
-                            <li>Blueprint</li>
-                            <li>Steamworks SDK</li>
-                        </ul>
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="QuilomboZ Project Thumbnail">
                     </div>
-                    <a href="https://store.steampowered.com/app/4596660/QuilomboZ_Palmares/" target="_blank" class="card-link">View Steam Page &rarr;</a>
+                    <div class="card-body">
+                        <div>
+                            <h3>QuilomboZ: Palmares</h3>
+                            <p>Developing character ability components, custom controller state patterns, interest-registration AI perception windows, and Steam achievements.</p>
+                            <ul class="tech-stack">
+                                <li>Unreal Engine</li>
+                                <li>C++</li>
+                                <li>Blueprint</li>
+                                <li>Steamworks SDK</li>
+                            </ul>
+                        </div>
+                        <a href="https://store.steampowered.com/app/4596660/QuilomboZ_Palmares/" target="_blank" class="card-link">View Steam Page &rarr;</a>
+                    </div>
                 </div>
 
                 <!-- LaneDefender -->
                 <div class="card">
-                    <div>
-                        <h3>LaneDefender</h3>
-                        <p>2D tower defense game built from scratch using C++, SDL2, and CMake, emphasizing Data-Oriented Design principles and contiguous memory arrays.</p>
-                        <ul class="tech-stack">
-                            <li>C++</li>
-                            <li>SDL2</li>
-                            <li>CMake</li>
-                            <li>Data-Oriented Design</li>
-                        </ul>
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="QuilomboZ Project Thumbnail">
                     </div>
-                    <a href="https://github.com/EveeGomes" target="_blank" class="card-link">View Repository &rarr;</a>
+                    <div class="card-body">
+                        <div>
+                            <h3>LaneDefender</h3>
+                            <p>2D tower defense game built from scratch using C++, SDL2, and CMake, emphasizing Data-Oriented Design principles and contiguous memory arrays.</p>
+                            <ul class="tech-stack">
+                                <li>C++</li>
+                                <li>SDL2</li>
+                                <li>CMake</li>
+                                <li>Data-Oriented Design</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/EveeGomes" target="_blank" class="card-link">View Repository &rarr;</a>
+                    </div>
                 </div>
 
             </div>
